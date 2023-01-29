@@ -11,16 +11,16 @@
 
 ## Deploying an Application
 
-1. Prepare a simple application to be deployed in Kubernetes
-1. Build an image and push it to a registry
-1. Create and apply a Kubernetes deployment via manifest
-1. Create an application in ArgoCD via the web user interface and synchorinize it
-1. Create an application in ArgoCD via the command line interface and synchorinize it
-1. Create an application in ArgoCD via declarative setup and synchorinize it
-1. Use automated synchronization
-1. Create a Kubernetes service to expose the application
-1. Create an ingress resource to expose the service beyond the cluster
-1. Use a pull request to update the application with a simple continuous integration setup
+1. [Prepare a simple application to be deployed in Kubernetes](application-deployment/prepare-application.md)
+1. [Build an image and push it to a registry](application-deployment/build-and-push-image.md)
+1. [Create and apply a Kubernetes deployment via manifest](application-deployment/build-and-push-image.md)
+1. [Create an application in ArgoCD via the web user interface and synchorinize it](application-deployment/create-argocd-application-browser.md)
+1. [Create an application in ArgoCD via the command line interface and synchorinize it](application-deployment/create-argocd-application-cli.md)
+1. [Create an application in ArgoCD via declarative setup and synchorinize it](application-deployment/create-argocd-application-declarative.md)
+1. [Use automated synchronization](application-deployment/automated-synchronization.md)
+1. [Create a Kubernetes service to expose the application](application-deployment/kubernetes-service.md)
+1. [Create an ingress resource to expose the service beyond the cluster](application-deployment/kubernetes-ingress.md)
+1. [Use a pull request to update the application with a simple continuous integration setup](application-deployment/pull-request.md)
 
 ## Promoting Changes Through Different Environments
 
