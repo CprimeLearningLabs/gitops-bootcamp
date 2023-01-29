@@ -2,12 +2,12 @@
 
 ## Setting up the Tools
 
-1. Setting up a cluster
-1. Accessing the cluster with kubectl
-1. Setting up an infrastructure repository
-1. Setting up an application repository
-1. Adding ArgoCD to the cluster
-1. Accessing ArgoCD
+1. [Setting up a cluster](setup/cluster-setup.md)
+1. [Accessing the cluster with kubectl](setup/cluster-access.md)
+1. [Setting up an infrastructure repository](setup/infrastructure-repository.md)
+1. [Setting up an application repository](setup/application-repository.md)
+1. [Adding ArgoCD to the cluster](setup/argocd-setup.md)
+1. [Accessing ArgoCD](setup/argocd-access.md)
 
 ## Deploying an Application
 
