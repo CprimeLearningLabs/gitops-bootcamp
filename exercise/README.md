@@ -4,6 +4,8 @@
 
 1. [Setting up a cluster](setup/cluster-setup.md)
 1. [Accessing the cluster with kubectl](setup/cluster-access.md)
+1. [Setting up a cluster with ingress support](setup/cluster-setup.md)
+1. [Changing Current Cluster Context](setup/cluster-context.md)
 1. [Setting up an infrastructure repository](setup/infrastructure-repository.md)
 1. [Setting up an application repository](setup/application-repository.md)
 1. [Adding ArgoCD to the cluster](setup/argocd-setup.md)
