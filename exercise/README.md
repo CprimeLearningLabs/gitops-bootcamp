@@ -33,5 +33,5 @@
 
 ##  Security in GitOps
 
-1. Create a secret
-1. Access a secret from the running application
+1. [Create a secret](security/create-secret.md)
+1. [Access a secret from the running application](security/access-secret.md)
