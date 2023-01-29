@@ -24,12 +24,12 @@
 
 ## Promoting Changes Through Different Environments
 
-1. Setting up a second cluster
-1. Register the cluster in ArgoCD
-1. Promote a verison from development to production
-1. Blue/Green deployment
-1. Canary Release
-1. Handling an error
+1. [Setting up a second cluster](environment-promotion/second-cluster-setup.md)
+1. [Register the cluster in ArgoCD](environment-promotion/argocd-cluster-registration.md)
+1. [Promote a verison from development to production](environment-promotion/promote-version.md)
+1. [Blue/Green deployment](environment-promotion/blue-green.md)
+1. [Canary Release](environment-promotion/canary.md)
+1. [Handling an error](environment-promotion/error-handling.md)
 
 ##  Security in GitOps
 
