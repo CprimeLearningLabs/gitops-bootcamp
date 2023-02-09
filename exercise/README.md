@@ -15,7 +15,7 @@
 
 1. [Prepare a simple application to be deployed in Kubernetes](application-deployment/prepare-application.md)
 1. [Build an image and push it to a registry](application-deployment/build-and-push-image.md)
-1. [Create and apply a Kubernetes deployment via manifest](application-deployment/build-and-push-image.md)
+1. [Create and apply a Kubernetes deployment via manifest](application-deployment/kubernetes-deployment.md)
 1. [Create an application in ArgoCD via the web user interface and synchorinize it](application-deployment/create-argocd-application-browser.md)
 1. [Create an application in ArgoCD via the command line interface and synchorinize it](application-deployment/create-argocd-application-cli.md)
 1. [Create an application in ArgoCD via declarative setup and synchorinize it](application-deployment/create-argocd-application-declarative.md)
