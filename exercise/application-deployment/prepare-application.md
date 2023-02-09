@@ -59,6 +59,8 @@ EXPOSE 8080
 CMD ["./webserver"]
 ```
 
+This is a multi-stage Dockerfile. When it runs, it will first create a context from the `golang:alpine` image, which contains the Go SDK, already installed. In this stage, we run `go build -o webserver main.go` to use the Go SDK to create a binary file called webserver. The second stage starts from a very small image, called `alipine` that doesn't have any of the tooling necessary for building applications. All it needs to do is be able to run a Linux binary - the binary we built in the first stage. We copy that binary into the second stage, and our result is an image that will run our application. We'll not worry about actually building just yet. That will be in the next lab.
+
 ## Making a snapshot
 
 These two files are all we'll need to have in our repository to get started. They aren't in the repository yet, though, just on disk in the working directory associated with your local repository. You'll need to introduce these files to the repository with `git add` and create a snaphot including them with `git commit`. Working with Git is a prerequisite for this course, so you likely already know how to do this. It's common for folks to have varying degrees of experience and comfort with Git, so feel free to ask your instructor more about Git and how it works.
