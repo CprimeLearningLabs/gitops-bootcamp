@@ -1,6 +1,6 @@
 # Accessing a cluster
 
-Now that we've created clusers, let's interact with them.
+Now that we've created clusters, let's interact with them.
 
 ## Verify kubectl is installed
 

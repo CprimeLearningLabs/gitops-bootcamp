@@ -8,7 +8,9 @@ ArgoCD uses Git as the source of truth for our application. To do this, it needs
 
 ## Using ArgoCD from your browser to set up an application
 
-To get ArgoCD to synchronize a directory with YAML manifests into creating resoruces in our cluster, we need a custom resources, set up by ArgoCD, called an application. Later, we'll think about alternative ways we might create applications. For the moment, we'll use the ArgoCD user interface in the browser.
+To get ArgoCD to synchronize a directory with YAML manifests into creating resoruces in our cluster, we need to create a resource from a custom resource definition, set up by ArgoCD, called an application. Later, we'll think about alternative ways we might create applications. For the moment, we'll use the ArgoCD user interface in the browser.
+
+### Authenticating
 
 First, we need to reach the application. Because you set up your development cluster to listen for ingress on port 8080 and installed ArgoCD to use ingress, you should be able to get to the site on http://localhost:8080. Try this and see if you get the ArgoCD user interface. Ask for help if you experience trouble.
 
@@ -23,6 +25,10 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```
 
 With these two pieces of information, you'll be able to get into the user interface.
+
+Before going further, you may want to change the password for your admin user to something you'll remember.
+
+### Application Creation
 
 ![](images/argo-applications-empty.png)
 
@@ -54,8 +60,10 @@ Assuming you entered all the input validly, you should go back to seeing the app
 
 Your application is currently in a state of
 
-- Sync status: Missing
-- Health: OutOfSync
+- Health: Missing
+- Sync status: OutOfSync
+
+## Using ArgoCD from your browser to synchronize an application
 
 You can sychronize your application either by clicking the `Sync` button on the tile for the application from the applications page or by clicking on the application tile and going to the page for the application and clicking `Sync` there.
 
@@ -70,6 +78,11 @@ The statuses of the applciation should turn green, on both the tile on the appli
 ![](images/argo-applications-synched.png)
 
 ![](images/argo-application-synched.png)
+
+The green statuses now shown represent:
+
+- Health: Healthy
+- Sync status: Synced
 
 Notice that the application page shows a set of resources, when we only created one in the manifest. This is expected. The deployment resource type is a complex type that creates more resources in fulfillment in a chain.
 
