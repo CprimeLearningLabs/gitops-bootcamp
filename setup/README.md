@@ -13,6 +13,7 @@ To follow the course material and do the lab exercises, having the following too
 - Helm
 - kind
 - Git
+- argocd (the ArgoCD command-line interface)
 
 ### Clusters and In-Cluster Resources
 
@@ -100,7 +101,7 @@ Verify kubectl with:
 kubectl version
 ```
 
-The expected output should show you information about both the installed kubectl client and, if you have a cluser context set up, the cluster Kubernetes version. If you do have a context set up, it will return a 0 exit code. If there is no context set up, it will return a 1 exit code because of failure to talk to the cluster, but this is ok because you haven't set up a context yet.
+The expected output should show you information about both the installed kubectl client and, if you have a cluster context set up, the cluster Kubernetes version. If you do have a context set up, it will return a 0 exit code. If there is no context set up, it will return a 1 exit code because of failure to talk to the cluster, but this is ok because you haven't set up a context yet.
 
 #### Helm
 
@@ -131,6 +132,16 @@ git version
 ```
 
 The expected output should show you information about the installed Git executable and return a 0 exit code.
+
+#### argocd
+
+Verify the ArgoCD command-line interface (argocd) with:
+
+```
+argocd
+```
+
+The expected output should show you help information for the ArgoCD command-line tool and return a 0 exit code.
 
 ## What's Next
 
