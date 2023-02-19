@@ -150,6 +150,8 @@ spec:
 
 After you push this change to your remote repository, it will take up to a few minutes for ArgoCD to notice the change and autonmatically synchronize. This is because, by default, ArgoCD is using polling to look for changes to the Git repository that is the source of truth for an application. This can be updated to get notified by webhooks from your Git provider (like GitHub) so there's not a wait. Because we haven't done this, it can take a minute or two (the default polling interval is 3 minutes, so it can take up to that).
 
+Note: You don't have to wait. In your browser in the web interface for ArgoCD, if you click `Refresh` for an application configured to automatically synchronize, either drilled into the application details or on the tile on the list of files for all applications, the sync will happen without the wait.
+
 Once synchronized, you should be able to see in your browser and via kubectl that the replicaset created by the deployment has a target number of replicas of 3 and that 3 pods have been created and are now ready.
 
 ```
