@@ -48,10 +48,10 @@ In our prior effort to build our image, we overlooked one thing. We didn't take 
 
 The reason we need to do this is that Docker and container registries follow a convention where the name of the image should include a prefix showing the registry where it lives. To be able to push this image to a registry, we first need to follow this convention.
 
-We'll go ahead and do `docker build` again. You might wonder about this choice, thinking it will be inefficient to build again. It turns out, though, that docker is very smart about knowing what it has already done and uses hashes of the layers of filesystem it creates and is able to reuse them.  The command below will assume you are using the GitHub Container Registry (ghrc.io). If you want to use a different registry instead, you'll have to use the URI for that registry. With GitHub Container Registry, you'll need to put the name of the user/organization scope to which you want to push the image. For our purposes, use your GitHub username. That will look like (you can't just copy and paste this one - you need to replace `<GitHub username>` with your GitHub username)
+We'll go ahead and do `docker build` again. You might wonder about this choice, thinking it will be inefficient to build again. It turns out, though, that docker is very smart about knowing what it has already done and uses hashes of the layers of filesystem it creates and is able to reuse them.  The command below will assume you are using the GitHub Container Registry (ghcr.io). If you want to use a different registry instead, you'll have to use the URI for that registry. With GitHub Container Registry, you'll need to put the name of the user/organization scope to which you want to push the image. For our purposes, use your GitHub username. That will look like (you can't just copy and paste this one - you need to replace `<GitHub username>` with your GitHub username)
 
 ```
-docker build -t ghrc.io/<GitHub username>/simple-http-server:latest .
+docker build -t ghcr.io/<GitHub username>/simple-http-server:latest .
 ```
 
 Docker's output, this time, should happen a lot faster and you should see messages about it having used cache.

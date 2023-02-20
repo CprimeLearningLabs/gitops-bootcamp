@@ -55,7 +55,7 @@ spec:
 With this update saved in your file, you can now issue the same kubectl command again to apply this updated manifest:
 
 ```
-kubectl apply -f declarative-application.yaml
+kubectl apply -f declarative-application-development.yaml
 ```
 
 Now, looking at the state of your applications should show all three of the applications as `Synced` and `Healthy`. You can see this in the web interface, the command-line interface, and/or with

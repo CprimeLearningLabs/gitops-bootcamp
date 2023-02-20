@@ -22,13 +22,14 @@
 1. [Use automated synchronization](application-deployment/automated-synchronization.md)
 1. [Create a Kubernetes service to expose the application](application-deployment/kubernetes-service.md)
 1. [Create an ingress resource to expose the service beyond the cluster](application-deployment/kubernetes-ingress.md)
-1. [Use a pull request to update the application with a simple continuous integration setup](application-deployment/pull-request.md)
 
 ## Promoting Changes Through Different Environments
 
 1. [Setting up a second cluster](environment-promotion/second-cluster-setup.md)
 1. [Register the cluster in ArgoCD](environment-promotion/argocd-cluster-registration.md)
+1. [Setting up ArgoCD applications for different environments](environment-promotion/application-setup.md)
 1. [Promote a verison from development to production](environment-promotion/promote-version.md)
+1. [Use a pull request to update the application with a simple continuous integration setup](application-deployment/pull-request.md)
 1. [Blue/Green deployment](environment-promotion/blue-green.md)
 1. [Canary Release](environment-promotion/canary.md)
 1. [Handling an error](environment-promotion/error-handling.md)

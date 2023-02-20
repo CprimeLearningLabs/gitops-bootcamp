@@ -31,7 +31,7 @@ spec:
     namespace: guestbook
 ```
 
-We'll want to take this template and flesh it out further to create an application just like the ones we've created in the prior labs. Create a file on your disk called `declarative-application.yaml` and fill it with the following YAML content (replacing `<Your Infrastrcture Repository URL>` with the URL of your infrastructure repository and `<The default branch in your repository>` with your default branch name, which will usually be either `master` or `main`):
+We'll want to take this template and flesh it out further to create an application just like the ones we've created in the prior labs. Create a file on your disk called `declarative-application-development.yaml` and fill it with the following YAML content (replacing `<Your Infrastrcture Repository URL>` with the URL of your infrastructure repository and `<The default branch in your repository>` with your default branch name, which will usually be either `master` or `main`):
 
 
 ``` yaml
@@ -57,7 +57,7 @@ spec:
 Now, apply this manifest to the cluster with
 
 ```
-kubectl apply -f declarative-application.yaml
+kubectl apply -f declarative-application-development.yaml
 ```
 
 You should now see that another application has been created.
