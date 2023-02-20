@@ -91,6 +91,8 @@ git merge development
 git push
 ```
 
+You should see the text `Fast-forward` in the output of the `git merge development` command. This means Git didn't need to create a new commit and just moved `production` forward to point at the same commit `development` was already pointing to.
+
 ArgoCD in the production cluster will synchronize, just like it did for development. Remember that you can use the refresh button to make it happen quickly.
 
 ## Make a material change to the application
@@ -181,3 +183,15 @@ and
 curl http://localhost/simple-http-server
 Hello, World!
 ```
+
+### Complete the loop by promoting to production.
+
+Now we'll use Git to update the application in production.
+
+```
+git checkout production
+git merge development
+git push
+```
+
+Once again, this should be a fast forward merge. When ArgoCD syncs, the latest code will now be in place in production.
