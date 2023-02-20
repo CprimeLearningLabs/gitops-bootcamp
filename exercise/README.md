@@ -30,9 +30,12 @@
 1. [Setting up ArgoCD applications for different environments](environment-promotion/application-setup.md)
 1. [Promote a verison from development to production](environment-promotion/promote-version.md)
 1. [Use a pull request to update the application with a simple continuous integration setup](application-deployment/pull-request.md)
-1. [Blue/Green deployment](environment-promotion/blue-green.md)
-1. [Canary Release](environment-promotion/canary.md)
-1. [Handling an error](environment-promotion/error-handling.md)
+
+## Advanced Deployment Scenarios/Methods
+
+1. [Blue/Green deployment](advanced-deployment/blue-green.md)
+1. [Canary Release](advanced-deployment/canary.md)
+1. [Handling an error](advanced-deployment/error-handling.md)
 
 ##  Security in GitOps
 
