@@ -33,7 +33,7 @@ LIke the web application, the ArgoCD command line interface needs you to log in.
 You do this with
 
 ```
-argocd login localhost:8080
+argocd login --grpc-web --skip-test-tls --plaintext localhost:8080 --name development
 ```
 
 It will ask you for your username and password. Use `admin` for the username and the password you acquired in the last lab (or that you set after you logged in) .
