@@ -14,6 +14,7 @@ To follow the course material and do the lab exercises, having the following too
 - kind
 - Git
 - argocd (the ArgoCD command-line interface)
+- argo-rollouts plugin for kubectl
 
 ### Clusters and In-Cluster Resources
 
@@ -142,6 +143,16 @@ argocd
 ```
 
 The expected output should show you help information for the ArgoCD command-line tool and return a 0 exit code.
+
+#### argo-rollouts plugin for kubectl
+
+Verify the argo-rollouts plugin for kubectl with:
+
+```
+kubectl argo rollouts --help
+```
+
+The expected output should show you help information for the argo-rollouts plugin for kubectl and return a 0 exit code.
 
 ## What's Next
 

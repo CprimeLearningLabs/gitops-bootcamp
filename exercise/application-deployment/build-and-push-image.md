@@ -90,14 +90,14 @@ Now that you have your token, you can go back to your terminal and save it into 
 
 In a POSIX compliant shell (like bash or zsh), that looks like
 
-```
+``` sh
 export CR_PAT=<YOUR_TOKEN>
 echo $CR_PAT | docker login ghcr.io -u anythinghere --password-stdin
 ```
 
 In Powershell, it's
 
-```
+``` powershell
 $env:CR_PAT='<YOUR_TOKEN>'
 Write-Output $env:CR_PAT | docker login ghcr.io -u anythinghere --password-stdin
 ```
