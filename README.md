@@ -14,7 +14,6 @@ Students needs to come prepared reason about DevOps, continuous integration, con
 
 ### Machine Setup
 
-Instructions for setting up a machien for the course [can be found here](setup/).
+Instructions for setting up a machine for the course [can be found here](setup/).
 
 The lab exercises themselves [can be found here](exercise/).
-
