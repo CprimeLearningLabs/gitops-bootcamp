@@ -34,8 +34,7 @@
 ## Advanced Deployment Scenarios/Methods
 
 1. [Blue/Green deployment](advanced-deployment/blue-green.md)
-1. [Canary Release](advanced-deployment/canary.md)
-1. [Handling an error](advanced-deployment/error-handling.md)
+2. [Handling an error](advanced-deployment/error-handling.md)
 
 ##  Security in GitOps
 
