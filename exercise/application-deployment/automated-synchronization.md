@@ -1,4 +1,4 @@
-# Synchronize Autonmatically
+# Synchronize Automatically
 
 In the last lab, you created an application in ArgoCD via Declarative Setup and left it not-yet-synchronized. In this lab, we're going to modify that application to synchronize automatically.
 
@@ -148,7 +148,7 @@ spec:
         - containerPort: 8080
 ```
 
-After you push this change to your remote repository, it will take up to a few minutes for ArgoCD to notice the change and autonmatically synchronize. This is because, by default, ArgoCD is using polling to look for changes to the Git repository that is the source of truth for an application. This can be updated to get notified by webhooks from your Git provider (like GitHub) so there's not a wait. Because we haven't done this, it can take a minute or two (the default polling interval is 3 minutes, so it can take up to that).
+After you push this change to your remote repository, it will take up to a few minutes for ArgoCD to notice the change and automatically synchronize. This is because, by default, ArgoCD is using polling to look for changes to the Git repository that is the source of truth for an application. This can be updated to get notified by webhooks from your Git provider (like GitHub) so there's not a wait. Because we haven't done this, it can take a minute or two (the default polling interval is 3 minutes, so it can take up to that).
 
 Note: You don't have to wait. In your browser in the web interface for ArgoCD, if you click `Refresh` for an application configured to automatically synchronize, either drilled into the application details or on the tile on the list of files for all applications, the sync will happen without the wait.
 
