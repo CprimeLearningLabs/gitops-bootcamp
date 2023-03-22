@@ -10,7 +10,7 @@ The course summary, description, outline, and registration: [https://www.cprime.
 
 ### Prerequsites
 
-Students needs to come prepared reason about DevOps, continuous integration, continuous delivery/deployment, Kubernetes, environments, automation, and more. The should also beprepared to use command line tools and their browser to interact with applications and environments.
+Students needs to come prepared to reason about DevOps, continuous integration, continuous delivery/deployment, Kubernetes, environments, automation, and more. The should also beprepared to use command line tools and their browser to interact with applications and environments.
 
 ### Machine Setup
 

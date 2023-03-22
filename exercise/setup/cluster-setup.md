@@ -93,7 +93,7 @@ kind get clusters
 This will show what Kubernetes clusters are already running on you machine via kind. You likely have not already created any, so you'll probably see
 
 ```
-No kind clusters foudn.
+No kind clusters found.
 ```
 
 You'll see, instead, a list of clusters if you have already created one or more.

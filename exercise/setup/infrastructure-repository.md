@@ -10,7 +10,7 @@ Give your organzation a name. The name must be unique on GitHub. That's really o
 
 Click `Next` and then click `Complete setup`.
 
-## Create your serrver repository
+## Create your server repository
 
 From the organizations home, you can click on the `Repositories` tab. You should see that the new organzation does not yet have any repositories.
 

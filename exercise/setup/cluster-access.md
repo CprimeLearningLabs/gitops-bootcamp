@@ -322,13 +322,13 @@ We can create a pod of our own. For this purpose, Kubernetes has `create` and `r
 First, let's create a new namespaces into which we'll insert our new pod.
 
 ```
-kubectl create namespaces first-pod
+kubectl create namespace first-pod
 ```
 
 Then, we'll create a pod in this namespace
 
 ```
-k run first-pod --image nginx -n first-pod
+kubectl run first-pod --image nginx -n first-pod
 ```
 
 We've now created a pod. We know this to be true because kubectl told us it created the pod

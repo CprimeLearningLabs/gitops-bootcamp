@@ -5,7 +5,7 @@ Add-AppxPackage .\Ubuntu.appx
 rm  .\Ubuntu.appx
 
 choco install -y docker-desktop
-choco install -y kubernetes helm
+choco install -y kubernetes-helm
 choco install -y kind
 choco install -y git
 choco install -y argocd-cli
