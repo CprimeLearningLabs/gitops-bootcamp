@@ -37,7 +37,7 @@ You can confirm that Homebrew is installed and working with: `brew --version`
 With a working Homebrew installation in place, there is a script provided here to use Homebrew to install the tools we'll use in the labs.
 
 ```
-/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/techtown-training/setup/HEAD/setup-mac.sh)"
+/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/CprimeLearningLabs/gitops-bootcamp/main/setup/setup-mac.sh)"
 ```
 
 #### On Windows
@@ -55,7 +55,7 @@ You can confirm that Chocolatey is installed and working with: `choco --version`
 With a working Chocolatey installation in place, there is a script provided here to use Chocolatey to install the tools we'll use in the labs.
 
 ``` powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/techtown-training/setup/HEAD/setup-windows.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/CprimeLearningLabs/gitops-bootcamp/main/setup/setup-windows.ps1'))
 ```
 
 Having executed this script, you'll be set up to use Windows and use these tools on Windows. You may want to do more from here. It is not strictly necessary, but it is recommended to [use the Docker Desktop WSL 2 backend](https://docs.docker.com/desktop/windows/wsl/).
@@ -75,7 +75,7 @@ With a working Docker installation in place, there is a script provided here to 
 labs on Debian-derived distrutions, including Ubuntu.
 
 ```
-/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/techtown-training/setup/HEAD/setup-ubuntu.sh)"
+/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/CprimeLearningLabs/gitops-bootcamp/main/setup/setup-ubuntu.sh)"
 ```
 
 For other distributions, it will be left as an exercise for the reader to get the tools installed and in a working state.
@@ -148,8 +148,16 @@ The expected output should show you help information for the ArgoCD command-line
 
 Verify the argo-rollouts plugin for kubectl with:
 
+On Linux or Mac, you can use the plugin with kubectl as it was intended:
+
 ```
 kubectl argo rollouts --help
+```
+
+On Windows, you'll get the same result, but will instead need to use the executable you downloaded directly:
+
+```
+kubectl-argo-rollouts-windows-amd64.exe --help
 ```
 
 The expected output should show you help information for the argo-rollouts plugin for kubectl and return a 0 exit code.
