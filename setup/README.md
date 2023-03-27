@@ -58,14 +58,15 @@ With a working Chocolatey installation in place, there is a script provided here
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/CprimeLearningLabs/gitops-bootcamp/main/setup/setup-windows.ps1'))
 ```
 
-Having executed this script, you'll be set up to use Windows and use these tools on Windows. You may want to do more from here. It is not strictly necessary, but it is recommended to [use the Docker Desktop WSL 2 backend](https://docs.docker.com/desktop/windows/wsl/).
+Having executed this script, you'll be set up to use Windows and use these tools on Windows.
 
+Docker Desktop will likely not just start up until you reboot your machine, so go ahead and do that now.
+
+``` powershell
+Restart-Computer
 ```
-choco install -y Microsoft-Windows-Subsystem-Linux -source WindowsFeatures
-```
 
-In addition to using the Windows Subsystem for Linux (WSL) as the backend for Docker, you may want to use 
-
+When your machine comes back up, Docker Desktop may or may not start automatically. You can go ahead and start it however you prefer to start applications on Windows, such as pressing the Windows key and then starting to type `Docker` and selecting it when it appears. One Docker Desktop is running, you'll be ready to proceed with verifying the tools are installed below.
 
 #### On Linux
 
