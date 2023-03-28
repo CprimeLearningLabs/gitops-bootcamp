@@ -54,10 +54,10 @@ argocd app list
 
 You should see the single application you created using your browser in the prior lab.
 
-Let's go ahead and create a new application now.
+Let's go ahead and create a new application now (make sure you replace `<your infrastructure repository https url>` with your infrastructure repository https url).
 
 ```
-argocd app create --repo https://github.com/raelyard/argo-play.git --dest-server https://kubernetes.default.svc --dest-namespace simple-http-server-argo-cli --path yaml-manifests --sync-option CreateNamespace=true simple-http-server-argo-cli
+argocd app create --repo <your infrastructure repository https url> --dest-server https://kubernetes.default.svc --dest-namespace simple-http-server-argo-cli --path yaml-manifests --sync-option CreateNamespace=true simple-http-server-argo-cli
 ```
 
 If you look at the web user interface in your browser, you'll see a second application in the same state we saw as when we first created with the user interface.
