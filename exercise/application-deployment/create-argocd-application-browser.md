@@ -103,7 +103,7 @@ In the coming labs, we'll build on this foundation and take things further by do
 For now, you should be able to see these resources have been created not only with the ArgoCD user interface, but also with kubectl.
 
 ```
-kubect get namespaces
+kubectl get namespaces
 ```
 
 should now reveal that there's a new namespace we hadn't seen before - `simple-http-server-argo-browser`. ArgoCd created the namespace when we told it to synchronize.
