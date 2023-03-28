@@ -20,13 +20,21 @@ You should arrive at the login page.
 
 To log in, you need credentails. Use the username `admin` and get the default admin password from a secret ArgoCD created for you. There are many ways to set up authentication with ArgoCD, including using single sign-on with whatever provider you use in your organization. We'll not cover any of that. Instead, we'll just use this default `admin` user. To get the password, we'll use kubectl to talk to the cluster and extract the password from a secret in the cluster.
 
-```
+In bash, or another POSIX-compatible shell, use this:
+
+``` bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+
+In Powershell, use this instead:
+
+``` powershell
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | % {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_))}
 ```
 
 With these two pieces of information, you'll be able to get into the user interface.
 
-Before going further, you may want to change the password for your admin user to something you'll remember.
+Before going further, you may want to change the password for your admin user to something you'll remember. Do this by clicking on `User Info` in the right-side menu and then clicking `Update Password`.
 
 ### Application Creation
 
