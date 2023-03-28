@@ -4,7 +4,7 @@ Now that we've seen the manual creation and deployment of an application, we'll 
 
 ## Using ArgoCD from your browser to set up a repository
 
-ArgoCD uses Git as the source of truth for our application. To do this, it needs to have access to a Git repository. If your repository requires authentication for access, you'll need to set up a repository with a key or token to have access. Because we set up a pulic repository as the infrastructure repository, you don't need to do this as a separate step and can just include the public repository address in the setup of an application. If you'd like to see your instructor demonstrate using a private repository, ask for that.
+ArgoCD uses Git as the source of truth for our application. To do this, it needs to have access to a Git repository. If your repository requires authentication for access, you'll need to set up a repository with a key or token to have access. Because we set up a public repository as the infrastructure repository, you don't need to do this as a separate step and can just include the public repository address in the setup of an application. If you'd like to see your instructor demonstrate using a private repository, ask for that.
 
 ## Using ArgoCD from your browser to set up an application
 
