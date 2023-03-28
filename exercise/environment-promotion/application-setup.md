@@ -19,7 +19,7 @@ Now, we have branches that represent our environment. They currently both point 
 
 ## Updating the Development application
 
-The ArgoCD application we've been using for synchronizing the development envirionment is currently referencing the default branch (usually `master` or `main`). Let's be more purposeful in using a branch to represent an environment and update to the applciation to instead use the ref called `development`.
+The ArgoCD application we've been using for synchronizing the development envirionment is currently referencing the default branch (usually `master` or `main`). Let's be more purposeful in using a branch to represent an environment and update to the application to instead use the ref called `development`.
 
 We'll do this with kubectl in the declarative style.
 
@@ -50,7 +50,7 @@ spec:
     - CreateNamespace=true
 ```
 
-Like before, update the applciation with
+Like before, update the application with
 
 ```
 kubectl apply -f declarative-application-development.yaml

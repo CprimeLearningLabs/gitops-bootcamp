@@ -81,7 +81,7 @@ Either way, click the `Sync` button and then on the panel that appears click `Sy
 
 After clicking the button, your application will synchronize. This should be very quick because we're only creating a small deployment and Kubernetes will create the resources associated with that quickly.
 
-The statuses of the applciation should turn green, on both the tile on the applications page and on the drilled-in application page.
+The statuses of the application should turn green, on both the tile on the applications page and on the drilled-in application page.
 
 ![](images/argo-applications-synched.png)
 
