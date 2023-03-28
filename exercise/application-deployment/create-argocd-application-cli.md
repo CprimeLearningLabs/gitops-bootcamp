@@ -80,7 +80,7 @@ argocd app sync simple-http-server-argo-cli
 The result will be the same as in the last lab. You should now have two different namespaces in your development cluster, each with a deployment, a replicaset, and a pod that are identical except for the namespace.
 
 ```
-kubect get namespaces
+kubectl get namespaces
 ```
 
 should now reveal that there's a new namespace we hadn't seen before - `simple-http-server-argo-cli`. ArgoCd created the namespace when we told it to synchronize.
