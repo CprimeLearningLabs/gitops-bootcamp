@@ -24,7 +24,7 @@ New-Item -ItemType Directory yaml-manifests
 New-Item yaml-manifests/simple-http-server-deployment.yaml
 ```
 
-Add the following content to your deployment YAML file (replacing `<GitHub username>` with your GitHub username).
+Add the following content to your deployment YAML file (replacing `<GitHub organization>` with your GitHub organization name).
 
 ``` YAML
 apiVersion: apps/v1
@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
       - name: simple-http-server
-        image: ghcr.io/<GitHub username>/simple-http-server
+        image: ghcr.io/<GitHub organization>/simple-http-server
         ports:
         - containerPort: 8080
 ```
