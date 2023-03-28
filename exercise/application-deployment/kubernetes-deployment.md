@@ -91,10 +91,6 @@ kubectl create namespace simple-http-server-manual
 
 This namespace will indicate that we're deploying here manually with kubectl.
 
-There's one step remaining before we can apply our manifest. We need to make the image in our registry accessible. There are two ways we can do this.
-
-<!-- TODO: instructions here for making GitHub Container Registry public or creating a secret to access registry with a personal access token -->
-
 Now we're ready to apply our manifest to get our deployment running in the cluster.
 
 ```
