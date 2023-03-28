@@ -69,7 +69,7 @@ Creating a first snapshot in your local repository can be done with
 
 ``` sh
 git add main.go
-git add DcokerFile
+git add Dockerfile
 git commit -m "Add simple HTTP server and Dockerfile
 
 to create an application to work with and enable building images with
