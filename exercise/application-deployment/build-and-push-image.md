@@ -56,10 +56,10 @@ In our prior effort to build our image, we overlooked one thing. We didn't take 
 
 The reason we need to do this is that Docker and container registries follow a convention where the name of the image should include a prefix showing the registry where it lives. To be able to push this image to a registry, we first need to follow this convention.
 
-We'll go ahead and do `docker build` again. You might wonder about this choice, thinking it will be inefficient to build again. It turns out, though, that docker is very smart about knowing what it has already done and uses hashes of the layers of filesystem it creates and is able to reuse them.  The command below will assume you are using the GitHub Container Registry (ghcr.io). If you want to use a different registry instead, you'll have to use the URI for that registry. With GitHub Container Registry, you'll need to put the name of the user/organization scope to which you want to push the image. For our purposes, use your GitHub username. That will look like (you can't just copy and paste this one - you need to replace `<GitHub username>` with your GitHub username)
+We'll go ahead and do `docker build` again. You might wonder about this choice, thinking it will be inefficient to build again. It turns out, though, that docker is very smart about knowing what it has already done and uses hashes of the layers of filesystem it creates and is able to reuse them.  The command below will assume you are using the GitHub Container Registry (ghcr.io). If you want to use a different registry instead, you'll have to use the URI for that registry. With GitHub Container Registry, you'll need to put the name of the user/organization scope to which you want to push the image. For our purposes, use the name of the GitHub organization you created earlier. That will look like (you can't just copy and paste this one - you need to replace `<GitHub organization>` with your GitHub organization's name)
 
 ```
-docker build -t ghcr.io/<GitHub username>/simple-http-server:latest .
+docker build -t ghcr.io/<GitHub organization>/simple-http-server:latest .
 ```
 
 Docker's output, this time, should happen a lot faster and you should see messages about it having used cache.
@@ -125,7 +125,25 @@ Login Succeeded
 Now you can push your image.
 
 ```
-docker push ghcr.io/<GitHub username>/simple-http-server:latest
+docker push ghcr.io/<GitHub organization>/simple-http-server:latest
 ```
 
-If that command was successful, the image is now in a registry and we can move on to using our registry to deploy our container image to create a containerized workload in a Kubernetes cluster.
+If that command was successful, the image is now in a registry. In order to use that image, we'll need to do one of two things: either make the image public, or set up an image pull secret in our clusters to allow authentication to the registry. For simplicity, we'll make the image publicly accessible.
+
+To do this, go, in your brower, to your GitHub organization. You can get there from your projects in the organization by using the origanization link in the "breadcrumbs" navigation of the site.
+
+On the organiztion page, click on the `Settings` tab.
+
+From the left menu, click `Packages`.
+
+Under `Package Creation`, check the checkbox labeled `Public` to allow the organzation to publish images publicly and click `Save`.
+
+Now, go back to the organiztion page by clicking on your organization name at the top of the page. On the organiztion page, click on the `Packages` tab.
+
+You should now see your image listed. Click it and then click `Package settings`.
+
+Under the scary-looking `Danger Zone` heading, you should see `Chanage package visibility`. Click the `Change visibility` button there.
+
+Select the public radio button, key the name of the package in the confirmation textbox, and click the `I understand the consequences, change package visibility.` button.
+
+You now have a publicly published package and we can move on to using our registry to deploy our container image to create a containerized workload in a Kubernetes cluster.
