@@ -31,7 +31,7 @@ It's good to create an image with a Dockerfile, but we want to make sure that ou
 Now, issue this command:
 
 ```
-docker run --rm -dp 8082:8082 --name simple-http-server simple-http-server:latest
+docker run --rm -dp 8082:8080 --name simple-http-server simple-http-server:latest
 ```
 
 You should now be able to see your newly running container with
@@ -40,7 +40,15 @@ You should now be able to see your newly running container with
 docker container ls
 ```
 
-You might have a lot of noise in your list of images on your machine, but you should be able to find the `simple-http-server` image you just created.
+You might have a lot of noise in your list of containers on your machine, but you should be able to find the `simple-http-server` image you just created.
+
+You have also exposed the Go application we created via `docker build` on port 8082 of your workstation. You can see it in action by requesting `http://localhost:8082`.
+
+If you leave that container running, it won't hurt anything. We're not going to do anything else with it, though, so you can get rid of it. That's as simple as deleting the container.
+
+```
+docker rm -f simple-http-server
+```
 
 ## Prepare to push the image to the registry
 
@@ -106,6 +114,12 @@ The output should be simple:
 
 ```
 anythinghere
+```
+
+or
+
+```
+Login Succeeded
 ```
 
 Now you can push your image.
