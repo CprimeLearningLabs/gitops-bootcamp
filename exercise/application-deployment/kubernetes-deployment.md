@@ -48,6 +48,23 @@ spec:
         - containerPort: 8080
 ```
 
+## Create a snapshot
+
+Having added a manifest to our infrastructure repository, we'll want to make sure it's commited so we have it going forward and so it'll be there for later use in GitOps.
+
+```
+git add yaml-manifests/simple-http-server-deployment.yaml
+git commit -m "Add deployment manifest for simple http server
+
+to enable deploying the application to Kubernetes as a deployment resource"
+```
+
+Make sure to send your update to the server.
+
+```
+git push
+```
+
 ## Apply the manifest
 
 We'll use kubectl to apply this manifest to our development cluster. Later, we'll have ArgoCD do our deployments for us, but we'll just first see that we can create a deployment and get it running in our cluster.
