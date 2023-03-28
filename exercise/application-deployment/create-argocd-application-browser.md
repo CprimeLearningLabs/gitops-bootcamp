@@ -52,7 +52,7 @@ In the space provided in the panel that appears, configure your new application.
 - Project Name: `default` (tabbing to the input or clicking it will reveal this as the only value to select)
 - Sync Policy: `Manual` (leave as default - for now)
 - Sync Options: Check the `AUTO-CREATE NAMESPACE` box and leave the others blank
-- Repsitory URL: `<Your Infrastrcture Repository URL>` (you can copy this from the GitHub, or other Git provider website and paste it here) (this should be a public repository/project if you want to reach it without authentication) (you can use either HTTPS or SSH)
+- Repsitory URL: `<Your Infrastrcture Repository URL>` (you can copy this from the GitHub, or other Git provider website and paste it here) (this should be a public repository/project if you want to reach it without authentication) (use the HTTPS clone URL)
 - Revision: `<The default branch in your repository>` (this will usually be either `master` or `main`)
 - Path: `yaml-manifests` (the name of the directory we created for YAML Kubernetes resource manifests)
 - Destination: `https://kubernetes.default.svc` (tabbing to the input or clicking it will reveal this as the only value to select) (choosing this default value simply means "use the current cluster in which ArgoCD is running)
