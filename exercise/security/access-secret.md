@@ -67,7 +67,7 @@ spec:
     spec:
       containers:
       - name: simple-http-server
-        image: ghcr.io/raelyard/simple-http-server:4319974167
+        image: ghcr.io/<GitHub organization>/simple-http-server:4319974167
         ports:
         - containerPort: 8080
         volumeMounts:

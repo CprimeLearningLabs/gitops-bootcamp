@@ -15,21 +15,21 @@ The first step we'll need to take is to return to the application repository.
 The command we used before to create the image we pushed to the registry was this:
 
 ```
-docker build -t ghcr.io/<GitHub username>/simple-http-server:latest .
+docker build -t ghcr.io/<GitHub organization>/simple-http-server:latest .
 ```
 
 The only thing we'll do differently now is that instead of using `latest`, we'll use a version number. Versioning strategies differ and it's worth communicating with your organization to decide on how you want to version your software, likely following something like [Semantic Versioning](https://semver.org/). This is not the topic of this course, so we'll use simple integer version numbers here, starting with zero.
 
-To build an image for version 0 of our application, we'll use (replacing `<GitHub username>` with your GitHub username):
+To build an image for version 0 of our application, we'll use (replacing `<GitHub organization>` with your GitHub organization name):
 
 ```
-docker build -t ghcr.io/<GitHub username>/simple-http-server:0 .
+docker build -t ghcr.io/<GitHub organization>/simple-http-server:0 .
 ```
 
-AFter the build is complete, push this to your registry. with (replacing `<GitHub username>` with your GitHub username) (you should still be logged in to the registry - if not, you'll need to log in):
+AFter the build is complete, push this to your registry. with (replacing `<GitHub organization>` with your GitHub organization name) (you should still be logged in to the registry - if not, you'll need to log in):
 
 ```
-docker push ghcr.io/<GitHub username>/simple-http-server:0
+docker push ghcr.io/<GitHub organization>/simple-http-server:0
 ```
 
 ## Update the deployment to use the versioned image
@@ -42,10 +42,10 @@ Switch your command-line context back to your infrastructure repository. Switch 
 git checkout development
 ```
 
-Here, we'll want to update the deployment manifest file. Edit `yaml-manifests/simple-http-server-deployment.yaml`. Find the line that says `image: ghcr.io/raelyard/simple-http-server` and change it to (replacing `<GitHub username>` with your GitHub username)
+Here, we'll want to update the deployment manifest file. Edit `yaml-manifests/simple-http-server-deployment.yaml`. Find the line that says `image: ghcr.io/<GitHub organization>/simple-http-server` and change it to (replacing `<GitHub organization>` with your GitHub organization name)
 
 ``` yaml
-image: ghcr.io/<GitHub username>/simple-http-server:0
+image: ghcr.io/<GitHub organization>/simple-http-server:0
 ```
 
 The whole manifest should now look like
@@ -67,7 +67,7 @@ spec:
     spec:
       containers:
       - name: simple-http-server
-        image: ghcr.io/<GitHub username>/simple-http-server:0
+        image: ghcr.io/<GitHub organization>/simple-http-server:0
         ports:
         - containerPort: 8080
 ```
@@ -130,10 +130,10 @@ func main() {
 Building an updated image will look like what we've done before, but we'll use the tag `1` for the new version instead of `0`. We should also, while we're doing this, update the latest tag to make life easier for teammates that might want to use the latest version of the application on their workstations for development and testing purposes.
 
 ```
-docker build -t ghcr.io/<GitHub username>/simple-http-server:1 .
-docker build -t ghcr.io/<GitHub username>/simple-http-server:latest .
-docker push ghcr.io/<GitHub username>/simple-http-server:1
-docker push ghcr.io/<GitHub username>/simple-http-server:latest
+docker build -t ghcr.io/<GitHub organization>/simple-http-server:1 .
+docker build -t ghcr.io/<GitHub organization>/simple-http-server:latest .
+docker push ghcr.io/<GitHub organization>/simple-http-server:1
+docker push ghcr.io/<GitHub organization>/simple-http-server:latest
 ```
 
 The registry now has a newer version, but we've not yet done anything to use it.
@@ -153,13 +153,13 @@ git checkout development
 Then changing
 
 ``` yaml
-image: ghcr.io/<GitHub username>/simple-http-server:0
+image: ghcr.io/<GitHub organization>/simple-http-server:0
 ```
 
 to
 
 ``` yaml
-image: ghcr.io/<GitHub username>/simple-http-server:1
+image: ghcr.io/<GitHub organization>/simple-http-server:1
 ```
 
 Followed by committing and pushing this change in a new snapshot.

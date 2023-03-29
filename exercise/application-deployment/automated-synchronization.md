@@ -67,7 +67,7 @@ kubectl get application -n argocd
 The resources created should be the same as for the labs for creating the applciations with the web interface and the command-line interface. You should now have three different namespaces in your development cluster, each with a deployment, a replicaset, and a pod that are identical except for the namespace.
 
 ```
-kubect get namespaces
+kubectl get namespaces
 ```
 
 should now reveal that there's a new namespace we hadn't seen before - `simple-http-server-argo-declarative`. ArgoCd created the namespace when it synchronized automatically.
@@ -143,7 +143,7 @@ spec:
     spec:
       containers:
       - name: simple-http-server
-        image: ghcr.io/<GitHub username>/simple-http-server
+        image: ghcr.io/<GitHub organization>/simple-http-server
         ports:
         - containerPort: 8080
 ```
