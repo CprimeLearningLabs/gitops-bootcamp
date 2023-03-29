@@ -17,7 +17,7 @@
 1. [Create and apply a Kubernetes deployment via manifest](application-deployment/kubernetes-deployment.md)
 1. [Create an application in ArgoCD via the web user interface and synchorinize it](application-deployment/create-argocd-application-browser.md)
 1. [Create an application in ArgoCD via the command line interface and synchorinize it](application-deployment/create-argocd-application-cli.md)
-1. [Create an application in ArgoCD via declarative setup and synchorinize it](application-deployment/create-argocd-application-declarative.md)
+1. [Create an application in ArgoCD via declarative setup](application-deployment/create-argocd-application-declarative.md)
 1. [Use automated synchronization](application-deployment/automated-synchronization.md)
 1. [Create a Kubernetes service to expose the application](application-deployment/kubernetes-service.md)
 1. [Create an ingress resource to expose the service beyond the cluster](application-deployment/kubernetes-ingress.md)
