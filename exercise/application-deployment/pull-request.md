@@ -8,7 +8,7 @@ To do this, we'll leverage GitHub Actions. This is only an example of one offeri
 
 Before we can use GitHub Actions to push images from workflows, we first need to give write access to the repository running our workflows to be able to push images to the user-scoped registry we've been using. You'll do this in the GitHub web user interace.
 
-In your browser, go to the packages tab of your profile on GitHub at (replace `<GitHub username>` with your GitHub username) ``https://github.com/<GitHub Username>?tab=packages`
+In your browser, go to the packages tab of your organization on GitHub at (replace `<GitHub organization>` with your GitHub organization name) `https://github.com/<GitHub organization>/packages`
 
 Here, you should see your image listed. Click it. Now click on `Package settings` on the right side of the page.
 
