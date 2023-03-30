@@ -99,7 +99,7 @@ Flags:
 Use "kubectl-argo-rollouts [command] --help" for more information about a command.
 ```
 
-## Update existing deployment to Blue/Green Rollout
+## Copy existing deployment to make a Blue/Green Rollout
 
 Go now to your infrastructure repository and checkout the `development` branch. 
 
@@ -107,9 +107,21 @@ Go now to your infrastructure repository and checkout the `development` branch.
 git checkout development
 ```
 
-We're going to want to modify `yaml-manifests/simple-http-server-deployment.yaml`.
+First, we'll create a copy of our existing deployment at `yaml-manifests/simple-http-server-deployment.yaml`.
 
-Change the `apiVersion` element at the root of the file from `apiVersion: apps/v1` to `apiVersion: argoproj.io/v1alpha1` and the `kind` element at the root of the file from `kind: Deployment` to `kind: Rollout`.
+In a POSIX compliant shell (like bash or zsh), that looks like
+
+``` sh
+cp yaml-manifests/simple-http-server-deployment.yaml yaml-manifests/simple-http-server-rollout.yaml
+```
+
+In Powershell use
+
+``` powershell
+Copy-Item yaml-manifests\simple-http-server-deployment.yaml yaml-manifests\simple-http-server-rollout.yaml
+```
+
+In the new file, `yaml-manifests\simple-http-server-rollout.yaml`, change the `apiVersion` element at the root of the file from `apiVersion: apps/v1` to `apiVersion: argoproj.io/v1alpha1` and the `kind` element at the root of the file from `kind: Deployment` to `kind: Rollout`. Change the app labels from `simple-http-server` to `simple-http-server-for-rollout`.
 
 Add a strategy element as a child of `spec` with this content:
 
@@ -120,68 +132,133 @@ Add a strategy element as a child of `spec` with this content:
       previewService: simple-http-server-service-preview
       autoPromotionEnabled: false
 ```
+
 The result should look like this:
 
 ``` yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: simple-http-server-deployment
-  labels:
-    app: simple-http-server
+  name: simple-http-server-rollout
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: simple-http-server
+      app: simple-http-server-for-rollout
   template:
     metadata:
       labels:
-        app: simple-http-server
+        app: simple-http-server-for-rollout
     spec:
       containers:
-      - name: simple-http-server
-        image: ghcr.io/<GitHub organization>/simple-http-server:4264242415
+      - name: simple-http-server-for-rollout
+        image: ghcr.io/<GitHub organization>/simple-http-server:<tag of your latest version>
         ports:
         - containerPort: 8080
   strategy:
     blueGreen: 
-      activeService: simple-http-server-service
-      previewService: simple-http-server-service-preview
+      activeService: simple-http-server-rollout-service
+      previewService: simple-http-server-rollout-service-preview
       autoPromotionEnabled: false
 ```
 
-Also, make a new service manifest. You can do this by copying the existing one and modifying it.
+Also, make a two new service manifests. You can do this by copying the existing one twice and modifying it.
 
 In a POSIX compliant shell (like bash or zsh), that looks like
 
 ``` sh
-cp yaml-manifests/simple-http-server-service.yaml yaml-manifests/simple-http-server-service-preview.yaml
+cp yaml-manifests/simple-http-server-service.yaml yaml-manifests/simple-http-server-rollout-service.yaml
+cp yaml-manifests/simple-http-server-service.yaml yaml-manifests/simple-http-server-rollout-service-preview.yaml
 ```
 
 In Powershell use
 
 ``` powershell
-Copy-Item yaml-manifests\simple-http-server-service.yaml yaml-manifests\simple-http-server-service-preview.yaml
+Copy-Item yaml-manifests\simple-http-server-service.yaml yaml-manifests\simple-http-server-rollout-service.yaml
+Copy-Item yaml-manifests\simple-http-server-service.yaml yaml-manifests\simple-http-server-rollout-service-preview.yaml
 ```
+In both new files, change the app property for the selector from `simple-http-server` to `simple-http-server-for-rollout`.
 
-Change the `metadata.name` element to `name: simple-http-server-service-preview`
+In the `yaml-manifests/simple-http-server-rollout-service.yaml` Change the `metadata.name` element to `name: simple-http-server-rollout-service`
 
-The content of this file should now look like this:
+In the `yaml-manifests/simple-http-server-rollout-service-preview.yaml` Change the `metadata.name` element to `name: simple-http-server-rollout-service-preview`
+
+The content of `yaml-manifests/simple-http-server-rollout-service.yaml` should now look like this:
 
 ``` yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: simple-http-server-service-preview
+  name: simple-http-server-rollout-service
 spec:
   selector:
-    app: simple-http-server
+    app: simple-http-server-for-rollout
   ports:
   - name: http
     port: 80
     targetPort: 8080
   type: ClusterIP
+```
+
+The content of `yaml-manifests/simple-http-server-rollout-service-preview.yaml` should now look like this:
+
+``` yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-http-server-rollout-service-preview
+spec:
+  selector:
+    app: simple-http-server-for-rollout
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  type: ClusterIP
+```
+
+Additionally, create another ingress by copying the existing one and modifying the copy.
+
+In a POSIX compliant shell (like bash or zsh), that looks like
+
+``` sh
+cp yaml-manifests/simple-http-server-ingress.yaml yaml-manifests/simple-http-server-rollout-ingress.yaml
+```
+
+In Powershell use
+
+``` powershell
+Copy-Item yaml-manifests\simple-http-server-ingress.yaml yaml-manifests\simple-http-server-rollout-ingress.yaml
+```
+
+Change the paths and names in the copy so it looks like
+
+``` yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-http-server-rollout-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /rollout-simple-http-server/(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: simple-http-server-rollout-service
+                port:
+                  number: 80
+          - path: /rollout-simple-http-server
+            pathType: Prefix
+            backend:
+              service:
+                name: simple-http-server-rollout-service
+                port:
+                  number: 80
 ```
 
 Commit and push the changes to the deployment manifest and the new service manifest. Wait for ArgoCd to sync or click the `Refresh` button.
@@ -222,7 +299,7 @@ When you commit and push this, your GitHub Action will create a new version of y
 Push the update and use the following command to see the status of the rollout and watch as it updates.
 
 ```
-kubectl argo rollouts get rollout simple-http-server-deployment -n simple-http-server-argo-declarative --watch
+kubectl argo rollouts get rollout simple-http-server-rollout -n simple-http-server-argo-declarative --watch
 ```
 
 This will show you a view of the replicaset that servers your application and a new one it will create as the preview version.
@@ -234,7 +311,7 @@ For the moment, if you request the `/friend` path, you'll still see the old vers
 Try opening a new terminal window (because your current one is occupied with watching the rollout) and there issue the following command and close the terminal window (to return to the one watching thte rollout).
 
 ```
-kubectl argo rollouts promote simple-http-server-deployment -n simple-http-server-argo-declarative
+kubectl argo rollouts promote simple-http-server-rollout -n simple-http-server-argo-declarative
 ```
 
 You should see the preview replicaset become stable and active. Eventually, the old replicaset will scale down.
