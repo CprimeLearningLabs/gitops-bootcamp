@@ -23,7 +23,7 @@ helm upgrade --install argorollouts argo/argo-rollouts -n argorollouts
 
 Argo Rollouts has a plugin for kubectl and you should have installed it earlier in the setup.
 
-You can check that it's installed with
+You can check that it's installed with (if you're on Windows, replace `kubectl argo rollouts` with `kubectl-argo-rollouts-windows-amd64.exe`)
 
 ```
 kubectl argo rollouts --help
@@ -296,7 +296,7 @@ func main() {
 
 When you commit and push this, your GitHub Action will create a new version of your application image. Get the tag for this version and put it commit it to the `development` branch of your infrastructure repository.
 
-Push the update and use the following command to see the status of the rollout and watch as it updates.
+Push the update and use the following command to see the status of the rollout and watch as it updates (if you're on Windows, replace `kubectl argo rollouts` with `kubectl-argo-rollouts-windows-amd64.exe`).
 
 ```
 kubectl argo rollouts get rollout simple-http-server-rollout -n simple-http-server-argo-declarative --watch
@@ -308,7 +308,7 @@ Because we configured the rollout not to automatically provision, the new versio
 
 For the moment, if you request the `/friend` path, you'll still see the old version (showing the default `Hello GitOps!` message).
 
-Try opening a new terminal window (because your current one is occupied with watching the rollout) and there issue the following command and close the terminal window (to return to the one watching thte rollout).
+Try opening a new terminal window (because your current one is occupied with watching the rollout) and there issue the following command and close the terminal window (to return to the one watching thte rollout) (if you're on Windows, replace `kubectl argo rollouts` with `kubectl-argo-rollouts-windows-amd64.exe`).
 
 ```
 kubectl argo rollouts promote simple-http-server-rollout -n simple-http-server-argo-declarative
