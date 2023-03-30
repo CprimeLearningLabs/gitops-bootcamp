@@ -12,9 +12,9 @@ In your browser, go to the packages tab of your organization on GitHub at (repla
 
 Here, you should see your image listed. Click it. Now click on `Package settings` on the right side of the page.
 
-On the settings page, there's a section of `Manage Actions access`. It should be empty. Click `Add repsitory` in this section. The repository you want to add is your application repository. You should have clled it `simple-http-server`. Check the checkbox next to that repository (you can filter the list down by keying part of the name if you have a lot of repositories) and click `Add repositories`.
+On the settings page, there's a section of `Manage Actions access`. It should be empty. Click `Add repsitory` in this section. The repository you want to add is your application repository. You should have clled it `application`. Check the checkbox next to that repository (you can filter the list down by keying part of the name if you have a lot of repositories) and click `Add repositories`.
 
-The repository is now added, but with read access only. Change the dropdown next to `simple-http-server` from `Role:Read` to say `Role:Write` (by selecting the `Write` option from the dropdown list).
+The repository is now added, but with read access only. Change the dropdown next to `application` from `Role:Read` to say `Role:Write` (by selecting the `Write` option from the dropdown list).
 
 ## Add a workflow configuration to your repository
 
