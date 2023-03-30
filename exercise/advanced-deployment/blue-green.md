@@ -188,7 +188,7 @@ Commit and push the changes to the deployment manifest and the new service manif
 
 ### Roll out an update
 
-AFter the application synchronizaes, we'll make a change to the application to see it update with a blue/green rollout.
+After the application synchronizaes, we'll make a change to the application to see it update with a blue/green rollout.
 
 Go to your application repository and add a new path on which to respond with something different. For exmpale, make the application repond to the path `/fried` with `Hello, fried!`.
 

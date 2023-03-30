@@ -26,7 +26,7 @@ To build an image for version 0 of our application, we'll use (replacing `<GitHu
 docker build -t ghcr.io/<GitHub organization>/simple-http-server:0 .
 ```
 
-AFter the build is complete, push this to your registry. with (replacing `<GitHub organization>` with your GitHub organization name) (you should still be logged in to the registry - if not, you'll need to log in):
+After the build is complete, push this to your registry. with (replacing `<GitHub organization>` with your GitHub organization name) (you should still be logged in to the registry - if not, you'll need to log in):
 
 ```
 docker push ghcr.io/<GitHub organization>/simple-http-server:0
